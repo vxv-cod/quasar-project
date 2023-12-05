@@ -537,9 +537,9 @@ const loadRowsHeaders = store.state.loadRowsHeaders
 //   return [...mapState({counter:'counter'})]
 // })
 
-const fff = [mapState(['counter', 'loadRowsHeaders'])]
+//const fff = [mapState(['counter', 'loadRowsHeaders'])]
 
-console.log('fff = ', fff);
+//console.log('fff = ', fff);
 // console.log('ggg = ', ggg);
 
 function pluss() {
