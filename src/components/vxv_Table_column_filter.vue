@@ -1,7 +1,6 @@
 <template>
   <div class="boxFill" style="margin: auto;"
   >
-  <!-- {{ counter }} -->
     <q-btn :disable="showEditIcon" flat round color="white" size="sm"
       icon="mdi-filter-variant" :class="colorBtn"
       >
@@ -44,8 +43,7 @@
                   </q-item-section>
 
                   <q-item-section>
-                    <!-- <q-item-label side center v-text="item"></q-item-label> -->
-                    <q-item-label side center >{{item}}</q-item-label>
+                    <q-item-label side center v-text="item"></q-item-label>
                   </q-item-section>
 
                   <!-- <q-separator inset /> -->
@@ -67,9 +65,6 @@
 
 <script setup>
 import { ref, onMounted, onUpdated, watch, watchPostEffect, computed, toRefs, defineProps, defineEmits } from 'vue'
-
-// import store from '../store'
-// const counter = computed(() => store.state.counter)
 
 const props = defineProps({
     menuShow: {

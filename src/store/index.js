@@ -1,30 +1,22 @@
 import { createStore } from 'vuex'
-import { elem }  from "/public/data/xxx.json"
-// import loadRowsHeaders from "/public/data/vxv_Table.json";
-import loadRowsHeaders from "/public/data/loadRowsCols";
 
- 
-export default createStore({
-  state: {
-    counter: elem,
-    loadRowsHeaders,
-  },
-  getters:{
-    getCount2(state){
-      return state.counter * 2;
-    }
-  },
-  mutations: {
-    increment (state, val) {
-      // mutate state
-      // state.counter++
-      state.counter = val
-    }    
-  },
-  actions: {
-  },
-  modules: {
+
+async function loadStores() {
+  const resourceModules = {};
+  const modules = import.meta.globEager('./modules/**/*.js');
+  console.log('modules = ', modules);
+
+  for (const path in modules) {
+    resourceModules[modules[path].default.name] = modules[path].default;
   }
 
-})
+  return resourceModules;
+};
 
+const resourceModules = await loadStores();
+
+const store = createStore({
+  modules: resourceModules
+});
+
+export default store;
